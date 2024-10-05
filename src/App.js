@@ -2,7 +2,13 @@ import React, { useState } from 'react'
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alerts from './components/Alerts';
-// import About from "./components/About";
+import About from "./components/About";
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 
 
@@ -47,12 +53,16 @@ const showAlert = (message, type) =>{
 
   }
   return (
-    <>
-      <Navbar title = 'TextUtils'  mode={mode} toggleMode = {toggleMode} changeColor={changeColor}/>
-      <Alerts alert={alert} />
-      <TextForm heading = "Enter the text to analyze" mode={mode} showAlert={showAlert} btnColor = {btnColor}/>
-      {/* <About /> */}
-    </>
+    <Router>
+      <>
+        <Navbar title = 'TextUtils'  mode={mode} toggleMode = {toggleMode} changeColor={changeColor}/>
+        <Alerts alert={alert} />
+        <Routes>
+        <Route path="/" element={<TextForm heading="Enter the text to analyze" mode={mode} showAlert={showAlert} btnColor={btnColor} />} />
+        <Route path="/about" element={<About mode = {mode}/>} />
+        </Routes>
+      </> 
+    </Router>
   )
 }
 
