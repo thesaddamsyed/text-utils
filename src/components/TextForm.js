@@ -44,10 +44,10 @@ function TextForm(props) {
           <div className="mb-3">
               <textarea className="form-control" value={text} style={{backgroundColor: props.mode === 'light'? 'white':'grey' , color: props.mode === 'light'? 'black':'white', border: `2px solid ${props.mode === 'light'? 'black':'white'}`}} onChange={handleChange} id="myBox" rows="3"></textarea>
           </div>
-          <button className="btn btn-primary mx-2" style={{backgroundColor : props.btnColor}} onClick={clickUpperCase} >Convert to Uppercase</button>
-          <button className="btn btn-primary mx-2" style={{backgroundColor : props.btnColor}} onClick={clickClear} >Clear Text</button>
-          <button className="btn btn-primary mx-2" style={{backgroundColor : props.btnColor}} onClick={clickLowerCase} >Convert to LowerCase</button>
-          <button className="btn btn-primary mx-2" style={{backgroundColor : props.btnColor}} onClick={clickCopy} >Copy Text</button>
+          <button className="btn btn-primary mx-2 my-1" style={{backgroundColor : props.btnColor}} onClick={clickUpperCase} >Convert to Uppercase</button>
+          <button className="btn btn-primary mx-2 my-1" style={{backgroundColor : props.btnColor}} onClick={clickClear} >Clear Text</button>
+          <button className="btn btn-primary mx-2 my-1" style={{backgroundColor : props.btnColor}} onClick={clickLowerCase} >Convert to LowerCase</button>
+          <button className="btn btn-primary mx-2 my-1" style={{backgroundColor : props.btnColor}} onClick={clickCopy} >Copy Text</button>
       </div>
       <div className="container my-4" style={{color: props.mode === 'light'? 'black':'white'}}>
         <h2>your text summary</h2>
