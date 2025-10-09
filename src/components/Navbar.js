@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "../App.css";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} navbar-custom `}
     >
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          {props.title}
+      <div className="container-fluid container-narrow">
+        <Link className="navbar-brand d-flex align-items-center" to="/">
+          <span className="me-2">✍️</span>
+          <span>{props.title}</span>
         </Link>
         <button
           className="navbar-toggler"
@@ -26,28 +27,62 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active fw-semibold" : ""}`
+                }
+                aria-current="page"
+                to="/"
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active fw-semibold" : ""}`
+                }
+                to="/about"
+              >
                 About
-              </Link>
+              </NavLink>
             </li>
           </ul>
-          { props.mode === 'dark' && <div className="btn-group my-2 mx-1" role="group" aria-label="Basic example">
-            <button type="button" onClick={() => {props.changeColor('#3D0000')}} className="btn btn-red">
-            </button>
-            <button type="button" className="btn btn-blue" onClick={() => {props.changeColor('#070A52')}}>
-            </button>
-            <button type="button" className="btn btn-green" onClick={() => {props.changeColor('#1A3636')}}>
-            </button>
-          </div>}
+          {props.mode === "dark" && (
+            <div
+              className="btn-group my-2 mx-1"
+              role="group"
+              aria-label="Theme colors"
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  props.changeColor("#3D0000");
+                }}
+                className="btn btn-red"
+              ></button>
+              <button
+                type="button"
+                className="btn btn-blue"
+                onClick={() => {
+                  props.changeColor("#070A52");
+                }}
+              ></button>
+              <button
+                type="button"
+                className="btn btn-green"
+                onClick={() => {
+                  props.changeColor("#1A3636");
+                }}
+              ></button>
+            </div>
+          )}
           <div className="form-check form-switch">
             <input
               className="form-check-input"
-              onClick={() => { props.toggleMode()}}
+              onChange={() => {
+                props.toggleMode();
+              }}
               type="checkbox"
               role="switch"
               id="flexSwitchCheckDefault"
@@ -58,7 +93,9 @@ export default function Navbar(props) {
               }`}
               htmlFor="flexSwitchCheckDefault"
             >
-              Enable DarkMode
+              {props.mode === "light"
+                ? "Enable Dark Mode"
+                : "Disable Dark Mode"}
             </label>
           </div>
           {/* <form className="d-flex" role="search">

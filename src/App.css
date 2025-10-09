@@ -10,8 +10,8 @@
 
 .app {
   transition: background-color 0.3s ease; /* Smooth transition for background change */
-  color: white;
-  text-align: center;
+  color: var(--text);
+  text-align: left;
 }
 
 /* Style the buttons for each theme */
@@ -51,4 +51,30 @@
 
 .btn-green:hover {
   background-color: darkgreen; /* Darker shade of green */
+}
+
+/* Modern card and section spacing for TextForm/About */
+.section {
+  padding: 24px 0;
+}
+
+.card-modern {
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: var(--surface);
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
+}
+
+.heading-xl {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.stat {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+  margin-right: 8px;
 }
