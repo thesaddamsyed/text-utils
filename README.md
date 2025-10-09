@@ -1,5 +1,9 @@
 # Getting Started with Create React App
 
+![Alt text](./src/assets/textUtilsImg.png)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
